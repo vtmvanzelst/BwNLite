@@ -9,7 +9,7 @@
 For the design assignment we are making use of the hydrodynamic numerical model XBeach in combination with JupyterLite notebooks. 
 These scripts provide some basic functionality. Feel challenged to adapt/develop these scripts to retrieve better system understanding. 
 Below we provide instructions on:
-1. [JupyterLite Environment](https://github.com/vtmvanzelst/BwNLitek#jupyterlite-environment)
+1. [JupyterLite Environment](https://github.com/vtmvanzelst/BwNLite#jupyterlite-environment)
 2. [Download and use of XBeach](https://github.com/vtmvanzelst/BwNLite#xbeach)
 
 ## JupyterLite Environment
