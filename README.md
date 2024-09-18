@@ -9,13 +9,8 @@
 For the design assignment we are making use of the hydrodynamic numerical model XBeach in combination with JupyterLite notebooks. 
 These scripts provide some basic functionality. Feel challenged to adapt/develop these scripts to retrieve better system understanding. 
 Below we provide instructions on:
-1. [JupyterLite Environment](https://github.com/vtmvanzelst/BwNLite#jupyterlite-environment)
-2. [Download and use of XBeach](https://github.com/vtmvanzelst/BwNLite#xbeach)
-
-## JupyterLite Environment
-For this assignment a JupyterLite Environment is created. This environment runs in the browser, thus does not require any local Python installation.
-[Link to JupyterLite Environment](https://vtmvanzelst.github.io/BwNLite/)
-
+1. [Download and use of XBeach](https://github.com/vtmvanzelst/BwNLite#xbeach)
+2. [JupyterLite Environment](https://github.com/vtmvanzelst/BwNLite#jupyterlite-environment)
 
 
 ## XBeach
@@ -31,7 +26,15 @@ It includes a vegetation module that solves short-wave and long-wave -vegetation
 
 If multiple XBeach versions are downloaded. This assignment is tested for **XBeach_1.24.6057_Halloween_win64_netcdf**.
 
-Extract the files into `..\YOUR_FOLDER\00_XB_software\`
+Extract the files into `..\YOUR_FOLDER\00_XB_software\` on your device.
+
+
+## JupyterLite Environment
+For this assignment a JupyterLite Environment is created. This environment runs in the browser, thus does not require any local Python installation.
+[Link to JupyterLite Environment](https://vtmvanzelst.github.io/BwNLite/)
+The environment consists of:
+1. 00_XB_software 	[empty folder - to show the required folder structure on your local device]
+2. 01_transects   	[folder       - includes transect data (bottom profile, vegetation presence)] 	
 
 
 
