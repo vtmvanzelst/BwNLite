@@ -18,15 +18,16 @@ XBeach is a two-dimensional model for wave propagation, long waves and mean flow
 It includes a vegetation module that solves short-wave and long-wave -vegetation interaction (Van Rooijen et al., 2015; Van Rooijen et al., 2016). 
 
 * XBeach software can be downloaded at: 	(https://download.deltares.nl/xbeach)
+Extract the files into `..\YOUR_FOLDER\00_XB_software\` on your device.
 
 * XBeach manual:				(https://xbeach.readthedocs.io/en/latest/xbeach_manual.html)
 
 
-**We did not test XBeach on Mac. You can pre-process and post-process data in Python on your Mac, but we do not provide instructions on how to run XBeach on Mac.**
+**We did not test XBeach on Mac. You can pre-process and post-process data in the Notebook on your Mac, but we do not provide instructions on how to run XBeach on Mac.**
 
-If multiple XBeach versions are downloaded. This assignment is tested for **XBeach_1.24.6057_Halloween_win64_netcdf**.
+This assignment is tested for **XBeach_1.24.6057_Halloween_win64_netcdf**.
 
-Extract the files into `..\YOUR_FOLDER\00_XB_software\` on your device.
+
 
 
 ## JupyterLite Environment
@@ -38,7 +39,7 @@ The environment consists of:
 3. `02_XB_sims`         [folder       - includes some dummy XBeach input files (do not make changes to those files) and will be used to store new input files based on user input] 
 4. `support_funcs`      [folder       - that holds a Python file that contains functions that are used in the notebook]
 
-5. `XB_notebook.ipynb`  [Notebook     - JupyterLite notebook that contains instructions and functions to set-up, run and post-process XBeach simulations.
+5. `XB_notebook.ipynb`  [**Notebook**     - JupyterLite notebook that contains instructions and functions to set-up, run and post-process XBeach simulations.
 
 6. `imgs`               [folder       - some images to support the environment]
 
