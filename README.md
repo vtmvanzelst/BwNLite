@@ -1,29 +1,127 @@
-# JupyterLite Demo
+![](https://github.com/vtmvanzelst/BwNCodebook/blob/main/imgs/saltmarsh.PNG)
 
-[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://jupyterlite.github.io/demo)
+# BwN Codebook
+ Supporting software for Delft University of Technology Building with Nature course.
 
-JupyterLite deployed as a static site to GitHub Pages, for demo purposes.
 
-## ✨ Try it in your browser ✨
+## Usage
 
-➡️ **https://jupyterlite.github.io/demo**
+For the design assignment we are making use of the hydrodynamic numerical model XBeach in combination with some Python scripts. 
+These scripts provide some basic functionality. Feel challenged to adapt/develop these scripts to retrieve better system understanding. 
+Below we provide instructions on:
+1. [Download and installation of Python Enviroment](https://github.com/vtmvanzelst/BwNCodebook#python-environment-and-downloading-assignment-files)
+2. [Download and use of XBeach](https://github.com/vtmvanzelst/BwNCodebook#xbeach)
+3. [Provided Python scripts](https://github.com/vtmvanzelst/BwNCodebook#python-scripts)
 
-![github-pages](https://user-images.githubusercontent.com/591645/120649478-18258400-c47d-11eb-80e5-185e52ff2702.gif)
+The first step is based on the installation for the **Coastal Systems course**. If you already installed this Python environment, you can partly skip this step.
 
-## Requirements
+## Python Environment and downloading assignment files
+Make a clone of this repository using GitHub Desktop and create a Python environment using a *.yaml-file to prevent dependencies issues by following the steps below.
 
-JupyterLite is being tested against modern web browsers:
+### 1. GitHub Desktop client
 
-- Firefox 90+
-- Chromium 89+
+By these steps, the files that are hosted at GitHub are "pulled" to your machine:
+* 1.1 Download GitHub Desktop via (https://desktop.github.com/) and install on your computer.
+* 1.2 Browse to (https://github.com/vtmvanzelst/BwNCodebook), click on the green "Code"
+   		button and select "Open with GitHub Desktop", or paste the URL into the GitHub client.
 
-## Deploy your JupyterLite website on GitHub Pages
+### 2. Mamba package manager
 
-Check out the guide on the JupyterLite documentation: https://jupyterlite.readthedocs.io/en/latest/quickstart/deploy.html
+If you're not familiar with managing Python environments, please have a look at this
+[introduction](https://earth-env-data-science.github.io/lectures/environment/python_environments.html?highlight=conda)
+first. The bottom line is that it is good practice to manage your software environments
+to avoid dependency conflicts.
 
-## Further Information and Updates
+Continue with installing a package manager (here we use Mambaforge):
 
-For more info, keep an eye on the JupyterLite documentation:
+#### Windows
+1. Download the [Mambaforge](https://mamba.readthedocs.io/en/latest/installation.html) executable file for Windows from [Miniforge GitHub page](https://github.com/conda-forge/miniforge#mambaforge). On that page there are also binaries for Mac and Linux; and for `conda` package managers, so make sure you download
+the `mambaforge` executable file for Windows. Install the executable by clicking on it; you can stay with the default settings by just clicking next through the installation client.
 
-- How-to Guides: https://jupyterlite.readthedocs.io/en/latest/howto/index.html
-- Reference: https://jupyterlite.readthedocs.io/en/latest/reference/index.html
+#### Mac and Linux
+
+**We did not test XBeach on Mac. You can pre-process and post-process data in Python on your Mac, but we do not provide instructions on how to run XBeach on Mac.**
+
+1. We recommend to install Mambaforge on Linux and Mac using a terminal. On Mac, you can
+	   open a terminal by searching for "terminal" or "iterm". On Linux the hotkey to open a
+	   terminal is "cntrl + shift + t". The commands to
+	   install the package manager are copied from their documentation and can be run by
+	   copying the commands below over to your terminal and pressing enter:  
+	   ```
+	   curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+	   bash Mambaforge-$(uname)-$(uname -m).sh
+	   ```
+2. Accept the user agreements, and allow the installation script to edit your profile
+	   file. The profile file (`~/.bashrc` on Linux or possibly `~/.zshrc` on Mac) is the
+	   first script which is being executed when you open a new terminal. The installation
+	   script will add a few lines to that file to make the `mamba` command available every
+	   time open a new terminal. 
+3. Close the terminal.
+
+
+### 3. Create Python Environment
+Now that we have our package manager we will create the software
+environments. 
+
+1. Now that mambaforge is available on your machine, open a terminal. On Windows you
+   should open the Miniforge prompt, which you can find by searching for it in the Start
+   window. On Mac you can open a terminal by searching for "terminal" or "iterm". For
+   Linux it's "cntrl + shift + t". 
+2. You can check if mamba was installed by running the following command in the terminal: 
+   ```bash 
+   mamba --version
+   ```` 
+   It should output something like: 
+
+   ```console
+   ~ base ? mamba --version
+   mamba 1.1.0
+   conda 22.9.0
+   ```
+3. Now that mambaforge is installed, navigate in the terminal to the directory
+   where you cloned the GitHub CoastalCodeBook repository. You can navigate the terminal
+   using `cd`, which stands for "change directory". 
+   - **Windows**: if you are on Windows and you installed the GitHub client using their default settings you can
+   simply run `cd %userprofile%\Documents\GitHub\BwNCodeBook`. 
+   - **Linux/Mac**: change to the directory where you cloned the GitHub repository. This
+     will be something like `cd ~/path/to/github/repository`. 
+4. The BwNCodebook root directory contains a yaml file: environment-coastal.yml, (that describes the software
+   dependencies). 
+
+   
+   Create the BwN environment by running: 
+   ```bash 
+   mamba env create -f environment-coastal.yml
+   ``` 
+   If you want to give other names to
+   the environments you can do so by adding a `-n` or `--name` flag, i.e., 
+   ```bash
+   mamba env create -n type_here_your_own_name -f environment-coastal.yml
+   ``` 
+
+
+## XBeach
+XBeach is a two-dimensional model for wave propagation, long waves and mean flow, sediment transport and morphological change on the coastal nearshore area (Roelvink et al., 2009). 
+It includes a vegetation module that solves short-wave and long-wave -vegetation interaction (Van Rooijen et al., 2015; Van Rooijen et al., 2016). 
+
+* XBeach software can be downloaded at: 	(https://download.deltares.nl/xbeach)
+
+* XBeach manual:				(https://xbeach.readthedocs.io/en/latest/xbeach_manual.html)
+
+If multiple XBeach versions are downloaded. This assignment is tested for **2018-11-09_XBeach_v1.23.5527_XBeachX_x64_netcdf**.
+
+Extract the files into `..\GitHub\BwNCodebook\00_XB_software\`
+
+
+
+## Python scripts
+The folder **03_scripts** contains two scripts:
+1.  `XB_script_assignment3.py`  (contains the main function execute support functions to  setup, run and postprocess simulations)
+2.  `support_funcs.XB_func.py`  (support functions)
+
+
+
+## References
+1. Roelvink, D. et al. Modelling storm impacts on beaches, dunes and barrier islands. Coast. Eng. 56, 1133�1152 (2009).
+2. van Rooijen, A. A. et al. Modeling of wave attenuation by vegetation with XBeach. E-proceedings 36th IAHR World Congr. 7 (2015).
+3. Van Rooijen, A. A. et al. Modeling the effect of wave-vegetation interaction on wave setup. J. Geophys. Res. Ocean. 121, 4341�4359 (2016).
