@@ -14,18 +14,7 @@ Below we provide instructions on:
 
 ## JupyterLite Environment
 For this assignment a JupyterLite Environment is created. This environment runs in the browser, thus does not require any local Python installation.
-JupyterLite Environment(https://vtmvanzelst.github.io/BwNLite/)
-
-
-By these steps, the files that are hosted at GitHub are "pulled" to your machine:
-* 1.1 Download GitHub Desktop via (https://desktop.github.com/) and install on your computer.
-* 1.2 Browse to (https://github.com/vtmvanzelst/BwNCodebook), click on the green "Code"
-   		button and select "Open with GitHub Desktop", or paste the URL into the GitHub client.
-
-#### Windows
-1. Download the [Mambaforge](https://mamba.readthedocs.io/en/latest/installation.html) executable file for Windows from [Miniforge GitHub page](https://github.com/conda-forge/miniforge#mambaforge). On that page there are also binaries for Mac and Linux; and for `conda` package managers, so make sure you download
-the `mambaforge` executable file for Windows. Install the executable by clicking on it; you can stay with the default settings by just clicking next through the installation client.
-
+[Link to JupyterLite Environment](https://vtmvanzelst.github.io/BwNLite/)
 
 
 
