@@ -1,59 +1,32 @@
 ![](https://github.com/vtmvanzelst/BwNCodebook/blob/main/imgs/saltmarsh.PNG)
 
-# BwN Codebook
+# BwN Notebook
  Supporting software for Delft University of Technology Building with Nature course 2024-2025.
 
 
 ## Usage
 
-For the design assignment we are making use of the hydrodynamic numerical model XBeach in combination with JupyterLite notebooks 
+For the design assignment we are making use of the hydrodynamic numerical model XBeach in combination with JupyterLite notebooks. 
 These scripts provide some basic functionality. Feel challenged to adapt/develop these scripts to retrieve better system understanding. 
 Below we provide instructions on:
-1. [JupyterLite Environment](https://github.com/vtmvanzelst/BwNCodebook#python-environment-and-downloading-assignment-files)
-2. [Download and use of XBeach](https://github.com/vtmvanzelst/BwNCodebook#xbeach)
+1. [JupyterLite Environment](https://github.com/vtmvanzelst/BwNLitek#jupyterlite-environment)
+2. [Download and use of XBeach](https://github.com/vtmvanzelst/BwNLite#xbeach)
 
-## Python Environment and downloading assignment files
-Make a clone of this repository using GitHub Desktop and create a Python environment using a *.yaml-file to prevent dependencies issues by following the steps below.
+## JupyterLite Environment
+For this assignment a JupyterLite Environment is created. This environment runs in the browser, thus does not require any local Python installation.
+JupyterLite Environment(https://vtmvanzelst.github.io/BwNLite/)
 
-### 1. GitHub Desktop client
 
 By these steps, the files that are hosted at GitHub are "pulled" to your machine:
 * 1.1 Download GitHub Desktop via (https://desktop.github.com/) and install on your computer.
 * 1.2 Browse to (https://github.com/vtmvanzelst/BwNCodebook), click on the green "Code"
    		button and select "Open with GitHub Desktop", or paste the URL into the GitHub client.
 
-### 2. Mamba package manager
-
-If you're not familiar with managing Python environments, please have a look at this
-[introduction](https://earth-env-data-science.github.io/lectures/environment/python_environments.html?highlight=conda)
-first. The bottom line is that it is good practice to manage your software environments
-to avoid dependency conflicts.
-
-Continue with installing a package manager (here we use Mambaforge):
-
 #### Windows
 1. Download the [Mambaforge](https://mamba.readthedocs.io/en/latest/installation.html) executable file for Windows from [Miniforge GitHub page](https://github.com/conda-forge/miniforge#mambaforge). On that page there are also binaries for Mac and Linux; and for `conda` package managers, so make sure you download
 the `mambaforge` executable file for Windows. Install the executable by clicking on it; you can stay with the default settings by just clicking next through the installation client.
 
-#### Mac and Linux
 
-**We did not test XBeach on Mac. You can pre-process and post-process data in Python on your Mac, but we do not provide instructions on how to run XBeach on Mac.**
-
-1. We recommend to install Mambaforge on Linux and Mac using a terminal. On Mac, you can
-	   open a terminal by searching for "terminal" or "iterm". On Linux the hotkey to open a
-	   terminal is "cntrl + shift + t". The commands to
-	   install the package manager are copied from their documentation and can be run by
-	   copying the commands below over to your terminal and pressing enter:  
-	   ```
-	   curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-	   bash Mambaforge-$(uname)-$(uname -m).sh
-	   ```
-2. Accept the user agreements, and allow the installation script to edit your profile
-	   file. The profile file (`~/.bashrc` on Linux or possibly `~/.zshrc` on Mac) is the
-	   first script which is being executed when you open a new terminal. The installation
-	   script will add a few lines to that file to make the `mamba` command available every
-	   time open a new terminal. 
-3. Close the terminal.
 
 
 ## XBeach
@@ -64,9 +37,12 @@ It includes a vegetation module that solves short-wave and long-wave -vegetation
 
 * XBeach manual:				(https://xbeach.readthedocs.io/en/latest/xbeach_manual.html)
 
-If multiple XBeach versions are downloaded. This assignment is tested for **2018-11-09_XBeach_v1.23.5527_XBeachX_x64_netcdf**.
 
-Extract the files into `..\GitHub\BwNCodebook\00_XB_software\`
+**We did not test XBeach on Mac. You can pre-process and post-process data in Python on your Mac, but we do not provide instructions on how to run XBeach on Mac.**
+
+If multiple XBeach versions are downloaded. This assignment is tested for **XBeach_1.24.6057_Halloween_win64_netcdf**.
+
+Extract the files into `..\YOUR_FOLDER\00_XB_software\`
 
 
 
