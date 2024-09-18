@@ -55,13 +55,18 @@ def plot_transect(df_transect:pd.DataFrame = None):
     y     = df_transect.elevation.values
     veg   = df_transect.vegetation.values
 
-    ax.plot(x,y, color = 'saddlebrown')
-    ax.plot(df_transect['dist_total'].loc[df_transect['vegetation'] ==1], df_transect['elevation'].loc[df_transect['vegetation'] ==1], color = 'limegreen')
-
-    ax.axhline(y=0, color = 'skyblue', ls = '--')
+    ax.plot(x,y, color = 'saddlebrown', label = 'unvegetated')
+    ax.plot(df_transect['dist_total'].loc[df_transect['vegetation'] ==1], df_transect['elevation'].loc[df_transect['vegetation'] ==1], color = 'limegreen', label = 'vegetation')
+    
+    if 'fake_data' in df_transect.columns:
+        ax.plot(df_transect['dist_total'].loc[df_transect['fake_data']==1], df_transect['elevation'].loc[df_transect['fake_data']==1], color = 'orange', label = 'artificial data')
+    
+    ax.axhline(y=0, color = 'skyblue', ls = '--', label = 'MSL')
     
     ax.set_ylabel('Elevation [m +MSL]')
     ax.set_xlabel('Distance [m]')
+    
+    ax.legend()
 
 def XB_load_results(dir_nc, vegopt = True):
     ds     = xr.open_dataset(dir_nc)
