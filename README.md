@@ -1,7 +1,7 @@
 ![](https://github.com/vtmvanzelst/BwNCodebook/blob/main/imgs/saltmarsh.PNG)
 
 # BwN Notebook
- Supporting software for Delft University of Technology Building with Nature course 2024-2025.
+ Supporting software for the **Building with Nature course 2024-2025** at Delft University of Technology .
 
 
 ## Usage
@@ -34,6 +34,7 @@ This assignment is tested for **XBeach_1.24.6057_Halloween_win64_netcdf**.
 ## JupyterLite Environment
 For this assignment a JupyterLite Environment is created. This environment runs in the browser, thus does not require any local Python installation.
 [Link to JupyterLite Environment](https://vtmvanzelst.github.io/BwNLite/)
+
 The environment consists of:
 1. `00_XB_software` 	[empty folder - to show the required folder structure on your local device]
 2. `01_transects`   	[folder       - includes transect data (bottom profile, vegetation presence)] 	
