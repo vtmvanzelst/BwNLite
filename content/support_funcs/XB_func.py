@@ -125,64 +125,6 @@ def XB_plot_val(df, var = 'hrms', vegopt = True):
     ax.set_xlabel('Distance [m]')
 
 
-
-def XB_plot_dif_val(df_veg, df_noveg, var = 'hrms', save_path = ''):
-    plt.figure(figsize=(8,6))
-    ax1 = plt.subplot2grid(shape=(3, 4), loc=(0, 0), colspan=3, rowspan = 2)
-    ax2 = plt.subplot2grid(shape=(3, 4), loc=(0, 3), colspan=1, rowspan = 2)
-    ax3 = plt.subplot2grid(shape=(3, 4), loc=(2, 0), colspan = 3, rowspan =1)                      
-    # ax4 = plt.subplot2grid(shape=(3, 4), loc=(2, 2))                       
-    # ax5 = plt.subplot2grid(shape=(3, 4), loc=(2, 3))
-    axes = [ax1, ax2, ax3]
-    
-    
-    # ax1 (top left plot)
-    ax1.plot(df_veg.x, df_veg.bed, color = 'saddlebrown')  # bed
-    ax1.plot(df_veg.x.loc[df_veg.veg==1], df_veg.bed.loc[df_veg.veg==1], color = 'limegreen')
-
-    if var == 'hrms':
-        ax1.plot(df_noveg.x, df_noveg.wl + df_noveg.hrms, color = 'dodgerblue')
-        ax1.plot(df_noveg.x, df_noveg.wl , color = 'lightblue', lw = 1)
-        
-        ax1.plot(df_veg.x, df_veg.wl + df_veg.hrms, color = 'tomato', ls = '--', lw = 1.5)
-        ax1.plot(df_veg.x, df_veg.wl , color = 'salmon', lw = 1, ls = '')        
-        
-        
-    else:
-        ax1.plot(df_noveg.x, df_noveg[var], color = 'dodgerblue')    
-        ax1.plot(df_veg.x  , df_veg[var], color = 'tomato', ls = '--')
-
-    # add vertical line
-    ax1.axvline(df_veg.x.loc[df_veg.x.loc[df_veg.veg==1].index[0]], color = 'limegreen', alpha = 0.5, ls = '--', lw = 0.5)
-    ax1.axvline(df_veg.x.loc[df_veg.x.loc[df_veg.veg==1].index[-1]], color = 'limegreen', alpha = 0.5, ls = '--', lw = 0.5)
-
-    
-    ax1.set_ylabel('z [m]')
-    ax1.set_ylim(-1,)
-    ax1.set_xticklabels([])
-    
-    # ax2  (top right plot)
-    idx_veg_end = df_veg.loc[df_veg['veg'] == 1].index[-1]
-    hrms_end_veg    = df_veg['hrms'].loc[idx_veg_end] 
-    hrms_end_noveg  = df_noveg['hrms'].loc[idx_veg_end]
-    
-    ax2.bar([0,1],[hrms_end_veg, hrms_end_noveg], color = ['limegreen','saddlebrown'])
-    ax2.set_ylabel('H$_{rms}$ [m]'); 
-    ax2.set_xticks([0,1]); ax2.set_xticklabels(['veg','noveg'])
-    ax2.set_xlabel('Wave height \nat end of \nvegetation zone')
-    
-    # ax3 (bottom plot)
-    ax3.set_xlabel('Distance [m]')
-    ax3.set_ylabel('H$_{rms}$ [m]')
-    ax3.plot(df_veg.x, df_veg.hrms, color = 'limegreen')
-    ax3.plot(df_noveg.x, df_noveg.hrms, color = 'saddlebrown')
-    
-
-    for ax in [ax1, ax2, ax3]:
-        ax.spines[['right', 'top']].set_visible(False)
-        
-    savefig(save_path, dpi = 300,bbox_inches='tight')
-
 def XBparams_sb(XB_templatefiledir,XB_outputfiledir, nxb, zs0):                                     #maken van param file for surfbeat [vvz]
     XBloadpathin= os.path.join(XB_templatefiledir, 'paramssb_0.txt');
     XBloadpathout= os.path.join(XB_outputfiledir, 'params.txt');
@@ -299,3 +241,65 @@ def XB_load_fortan_results(dir_sim, veg_opt = False):
   #      first_idx  = df_results[df_results['wl']<=df_results['bed']].index[0]
    #     df_results = df_results.iloc[0:first_idx+1,:]
     return df_results
+
+
+def XB_plot_dif_val(df_veg, df_noveg, var = 'hrms', save_path = ''):
+    plt.figure(figsize=(8,6))
+    ax1 = plt.subplot2grid(shape=(3, 4), loc=(0, 0), colspan=3, rowspan = 2)
+    ax2 = plt.subplot2grid(shape=(3, 4), loc=(0, 3), colspan=1, rowspan = 2)
+    ax3 = plt.subplot2grid(shape=(3, 4), loc=(2, 0), colspan = 3, rowspan =1)                      
+    # ax4 = plt.subplot2grid(shape=(3, 4), loc=(2, 2))                       
+    # ax5 = plt.subplot2grid(shape=(3, 4), loc=(2, 3))
+    axes = [ax1, ax2, ax3]
+    
+    
+    # ax1 (top left plot)
+    ax1.plot(df_veg.x, df_veg.bed, color = 'saddlebrown')  # bed
+    ax1.plot(df_veg.x.loc[df_veg.veg==1], df_veg.bed.loc[df_veg.veg==1], color = 'limegreen')
+
+    if var == 'hrms':
+        ax1.plot(df_noveg.x, df_noveg.wl + df_noveg.hrms, color = 'dodgerblue')
+        ax1.plot(df_noveg.x, df_noveg.wl , color = 'lightblue', lw = 1)
+        
+        ax1.plot(df_veg.x, df_veg.wl + df_veg.hrms, color = 'darkgreen', ls = '--', lw = 1.5)
+        ax1.plot(df_veg.x, df_veg.wl , color = 'salmon', lw = 1, ls = '')        
+        
+        
+    else:
+        ax1.plot(df_noveg.x, df_noveg[var], color = 'dodgerblue')    
+        ax1.plot(df_veg.x  , df_veg[var], color = 'darkgreen', ls = '--')
+
+    # add vertical line
+    ax1.axvline(df_veg.x.loc[df_veg.x.loc[df_veg.veg==1].index[0]], color = 'limegreen', alpha = 0.5, ls = '--', lw = 0.5)
+    ax1.axvline(df_veg.x.loc[df_veg.x.loc[df_veg.veg==1].index[-1]], color = 'limegreen', alpha = 0.5, ls = '--', lw = 0.5)
+
+    
+    ax1.set_ylabel('z [m]')
+    ax1.set_ylim(-1,)
+    ax1.set_xticklabels([])
+    
+    # ax2  (top right plot)
+    idx_veg_end = df_veg.loc[df_veg['veg'] == 1].index[-1]
+    hrms_end_veg    = df_veg['hrms'].loc[idx_veg_end] 
+    hrms_end_noveg  = df_noveg['hrms'].loc[idx_veg_end]
+    
+    ax2.bar([0,1],[hrms_end_veg, hrms_end_noveg], color = ['limegreen','saddlebrown'])
+    ax2.set_ylabel('H$_{rms}$ [m]'); 
+    ax2.set_xticks([0,1]); ax2.set_xticklabels(['veg','noveg'], fontweight = 'bold')
+    ax2.set_xlabel('Wave height \nat end of \nvegetation zone')
+
+    ax2.text(0,hrms_end_veg+0.015, str(np.round(hrms_end_veg,2)), ha = 'center')
+    ax2.text(1,hrms_end_noveg+0.015, str(np.round(hrms_end_noveg,2)), ha = 'center')
+
+    
+    # ax3 (bottom plot)
+    ax3.set_xlabel('Distance [m]')
+    ax3.set_ylabel('H$_{rms}$ [m]')
+    ax3.plot(df_veg.x, df_veg.hrms, color = 'darkgreen', ls = '--', label  = 'H$_{rms, veg}$')
+    ax3.plot(df_noveg.x, df_noveg.hrms, color = 'dodgerblue',label  = 'H$_{rms, noveg}$')
+    ax3.legend()
+
+    for ax in [ax1, ax2, ax3]:
+        ax.spines[['right', 'top']].set_visible(False)
+        
+    savefig(save_path, dpi = 300, bbox_inches='tight')
