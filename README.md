@@ -33,8 +33,15 @@ Extract the files into `..\YOUR_FOLDER\00_XB_software\` on your device.
 For this assignment a JupyterLite Environment is created. This environment runs in the browser, thus does not require any local Python installation.
 [Link to JupyterLite Environment](https://vtmvanzelst.github.io/BwNLite/)
 The environment consists of:
-1. 00_XB_software 	[empty folder - to show the required folder structure on your local device]
-2. 01_transects   	[folder       - includes transect data (bottom profile, vegetation presence)] 	
+1. `00_XB_software` 	[empty folder - to show the required folder structure on your local device]
+2. `01_transects`   	[folder       - includes transect data (bottom profile, vegetation presence)] 	
+3. `02_XB_sims`         [folder       - includes some dummy XBeach input files (do not make changes to those files) and will be used to store new input files based on user input] 
+4. `support_funcs`      [folder       - that holds a Python file that contains functions that are used in the notebook]
+
+5. `XB_notebook.ipynb`  [Notebook     - JupyterLite notebook that contains instructions and functions to set-up, run and post-process XBeach simulations.
+
+6. `imgs`               [folder       - some images to support the environment]
+
 
 
 
