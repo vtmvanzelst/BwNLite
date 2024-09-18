@@ -46,7 +46,7 @@ bcfile       = jonswap.txt
 
 %%% Output variables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-outputformat = netcdf
+outputformat = fortran
 tintm        = 1800
 tintg        = 10.00000
 tstart       = 900
