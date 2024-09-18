@@ -7,6 +7,7 @@ import pandas as pd
 import pickle
 from pylab import plot, show, savefig, xlim, figure, ylim, legend, boxplot, setp, axes
 import xarray as xr
+import struct
 import sys
 
 
@@ -259,3 +260,41 @@ def write_xb_hydrodynamics(xgrid, XBtemplate_dir, wd, zs0, Hm0, fp):
     XBparams_sb(XB_templatefiledir,XB_outputfiledir, nxb, zs0)
     # write wave related input
     XBjonswap(XB_templatefiledir, XB_outputfiledir,Hm0,fp)
+
+
+
+def XB_load_fortan_results(dir_sim):
+    hrms    = load_xbdat_file(join(dir_sim, 'H_mean.dat'))
+    zs_mean = load_xbdat_file(join(dir_sim,'zs_mean.dat'))
+    zb_mean = load_xbdat_file(join(dir_sim,'zb_mean.dat'))
+    xy      = load_xbdat_file(join(dir_sim,'xy.dat'))
+    x       = xy[0:int(len(xy)/4)]
+    
+    df_results = pd.DataFrame.from_dict({'x':x,
+                                         'bed': zb_mean,
+                                         'wl': zs_mean,
+                                         'hrms': hrms})
+    
+    # clip results once levee is reached
+    if (df_results['wl']<=df_results['bed']).sum() >0:
+        first_idx  = df_results[df_results['wl']<=df_results['bed']].index[0]
+        df_results = df_results.iloc[0:first_idx+1,:]
+    return df_results
+
+
+
+def load_xbdat_file(fn):
+    with open(fn, 'rb') as f:
+        data = f.read()
+    
+    file_size = os.path.getsize(fn)
+    #print(f"File size: {file_size} bytes")
+    
+    num_doubles = file_size // 8  # Total number of 64-bit doubles
+    fmt = 'd' * num_doubles  # 'd' is the format for a 64-bit double
+    
+    fn = join(dir_veg,'xy.dat')
+    
+    unpacked_data = struct.unpack(fmt, data)
+
+    return unpacked_data
