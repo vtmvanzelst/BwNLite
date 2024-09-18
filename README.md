@@ -1,7 +1,7 @@
-![](https://github.com/vtmvanzelst/BwNCodebook/blob/main/imgs/saltmarsh.PNG)
-
 # BwN Notebook
  Supporting software for the **Building with Nature course 2024-2025** at Delft University of Technology .
+
+![](https://github.com/vtmvanzelst/BwNCodebook/blob/main/imgs/saltmarsh.PNG)
 
 
 ## Usage
