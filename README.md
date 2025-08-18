@@ -1,5 +1,5 @@
 # BwN Notebook
- Supporting software for the **Building with Nature course 2024-2025** at Delft University of Technology .
+ Supporting software for the **Building with Nature course 2025-2026** at Delft University of Technology .
 
 ![](https://github.com/vtmvanzelst/BwNCodebook/blob/main/imgs/saltmarsh.PNG)
 
@@ -50,6 +50,6 @@ The environment consists of:
 
 
 ## References
-1. Roelvink, D. et al. Modelling storm impacts on beaches, dunes and barrier islands. Coast. Eng. 56, 1133–1152 (2009).
+1. Roelvink, D. et al. Modelling storm impacts on beaches, dunes and barrier islands. Coast. Eng. 56, 1133â€“1152 (2009).
 2. van Rooijen, A. A. et al. Modeling of wave attenuation by vegetation with XBeach. E-proceedings 36th IAHR World Congr. 7 (2015).
-3. Van Rooijen, A. A. et al. Modeling the effect of wave-vegetation interaction on wave setup. J. Geophys. Res. Ocean. 121, 4341–4359 (2016).
+3. Van Rooijen, A. A. et al. Modeling the effect of wave-vegetation interaction on wave setup. J. Geophys. Res. Ocean. 121, 4341â€“4359 (2016).
